@@ -243,10 +243,14 @@
 
     .stop p { margin: 0 0 10px; color: #334252; }
 
-    .maps {
+    .maps, .route-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+    }
+
+    .route-actions {
+      justify-content: flex-end;
     }
 
     .maps a, .map-all, .toggle {
@@ -255,7 +259,7 @@
       background: var(--soft);
       color: var(--ink);
       border-radius: 8px;
-      padding: 8px 10px;
+      padding: 8px 10ppx;
       font-weight: 700;
       font-size: 13px;
       text-decoration: none;
@@ -583,11 +587,11 @@
       return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
     }
 
-    function directionsUrl(stops) {
+    function directionsUrl(stops, mode = "walking") {
       const origin = stops[0];
       const destination = stops[stops.length - 1];
       const waypoints = stops.slice(1, -1).join("|");
-      return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=walking${waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ""}`;
+      return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=${mode}${waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ""}`;
     }
 
     function renderTabs() {
@@ -649,7 +653,10 @@
               <h2>${day.title}</h2>
               <p>${day.date} - ${day.mood}</p>
             </div>
-            <a class="map-all" href="${directionsUrl(day.map)}" target="_blank" rel="noreferrer">Open Day Route</a>
+            <div class="route-actions" aria-label="Day route options">
+              <a class="map-all" href="${directionsUrl(day.map, "walking")}" target="_blank" rel="noreferrer">Open Walking Route</a>
+              <a class="map-all" href="${directionsUrl(day.map, "transit")}" target="_blank" rel="noreferrer">Open Transit Route</a>
+            </div>
           </div>
           <div class="route-list">
             ${day.routes.map(renderRouteCard).join("")}
