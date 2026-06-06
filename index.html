@@ -259,7 +259,7 @@
       background: var(--soft);
       color: var(--ink);
       border-radius: 8px;
-      padding: 8px 10ppx;
+      padding: 8px 10px;
       font-weight: 700;
       font-size: 13px;
       text-decoration: none;
@@ -302,6 +302,14 @@
     .transit-list b, .backup-list b, .hotel-list b {
       display: block;
       margin-bottom: 3px;
+    }
+
+    .transit-list a {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .meal-controls {
@@ -655,7 +663,6 @@
             </div>
             <div class="route-actions" aria-label="Day route options">
               <a class="map-all" href="${directionsUrl(day.map, "walking")}" target="_blank" rel="noreferrer">Open Walking Route</a>
-              <a class="map-all" href="${directionsUrl(day.map, "transit")}" target="_blank" rel="noreferrer">Open Transit Route</a>
             </div>
           </div>
           <div class="route-list">
@@ -672,6 +679,15 @@
               <h3>Transit Times</h3>
               <ul class="transit-list">
                 ${day.transit.map(item => `<li><b>${item[0]}</b>${item[1]}</li>`).join("")}
+              </ul>
+            </div>
+            <div class="side-section">
+              <h3>Transit Segments</h3>
+              <ul class="transit-list">
+                ${day.map.slice(0, -1).map((stop, index) => {
+                  const next = day.map[index + 1];
+                  return `<li><b>${stop} to ${next}</b><a href="${directionsUrl([stop, next], "transit")}" target="_blank" rel="noreferrer">Open transit in Google Maps</a></li>`;
+                }).join("")}
               </ul>
             </div>
             <div class="side-section">
