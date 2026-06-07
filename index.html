@@ -3,182 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chicago 2026 Family Travel Guide</title>
-  <meta name="description" content="Carry-around Chicago 2026 family travel portal with day tabs, route cards, meals, backup plans, transit notes, and Google Maps links.">
+  <title>Chicago 2026 Travel Guide</title>
   <style>
-    :root {
-      color-scheme: light;
-      --ink: #17212b;
-      --muted: #637184;
-      --line: #d9e0e7;
-      --panel: #ffffff;
-      --soft: #f4f7f9;
-      --blue: #1d5f86;
-      --teal: #0f766e;
-      --green: #43724a;
-      --gold: #9a6216;
-      --rose: #9f4a58;
-      --shadow: 0 10px 30px rgba(23, 33, 43, .08);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-    html { overflow-x: hidden; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: #eef3f6;
-      line-height: 1.45;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; }
-
-    .app {
-      min-height: 100vh;
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    header {
-      background:
-        linear-gradient(120deg, rgba(15, 118, 110, .9), rgba(29, 95, 134, .85)),
-        url("https://images.unsplash.com/photo-1477414348463-c0eb7f1359b6?auto=format&fit=crop&w=1800&q=80") center 42% / cover;
-      color: #fff;
-      padding: 22px clamp(16px, 4vw, 48px) 18px;
-    }
-
-    .hero {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: grid;
-      gap: 16px;
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(30px, 5vw, 58px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .subtitle {
-      max-width: 720px;
-      margin: 10px 0 0;
-      font-size: 16px;
-      color: rgba(255, 255, 255, .9);
-    }
-
-    .weather-chip {
-      min-width: 190px;
-      border: 1px solid rgba(255, 255, 255, .3);
-      background: rgba(255, 255, 255, .13);
-      backdrop-filter: blur(10px);
-      border-radius: 8px;
-      padding: 12px;
-      text-align: right;
-      font-size: 13px;
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .quick {
-      border: 1px solid rgba(255, 255, 255, .25);
-      border-radius: 8px;
-      padding: 11px 12px;
-      background: rgba(255, 255, 255, .12);
-      min-height: 74px;
-      min-width: 0;
-    }
-
-    .quick b, .weather-chip b {
-      display: block;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: rgba(255, 255, 255, .72);
-      margin-bottom: 4px;
-    }
-
-    .quick span { display: block; font-weight: 700; }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(238, 243, 246, .92);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-      padding: 10px clamp(12px, 4vw, 48px);
-    }
-
-    .tabs {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(6, minmax(86px, 1fr));
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 2px;
-    }
-
-    .tab {
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 8px;
-      padding: 10px 9px;
-      color: var(--ink);
-      cursor: pointer;
-      min-width: 92px;
-      text-align: left;
-      box-shadow: none;
-      min-height: 62px;
-    }
-
-    .tab[aria-selected="true"] {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
-    }
-
-    .tab strong, .tab small { display: block; }
-    .tab small { color: currentColor; opacity: .72; margin-top: 2px; }
-
-    main {
-      width: min(1180px, calc(100% - 24px));
-      margin: 18px auto 36px;
-    }
-
-    .day-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
-      gap: 18px;
-      align-items: start;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      min-width: 0;
-    }
-
-    .day-head {
-      padding: 18px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-betwee
+    :root{--ink:#17212b;--muted:#637184;--line:#d9e0e7;--soft:#f4f7f9;--blue:#1d5f86;--green:#43724a;--gold:#9a6216;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html,body{margin:0;overflow-x:hidden}body{color:var(--ink);background:#eef3f6;line-height:1.45}a{color:inherit}
+    header{background:linear-gradient(120deg,rgba(15,118,110,.9),rgba(29,95,134,.86)),url("https://images.unsplash.com/photo-1477414348463-c0eb7f1359b6?auto=format&fit=crop&w=1600&q=80") center 42%/cover;color:#fff;padding:22px 16px}
+    .wrap{max-width:1120px;margin:auto}.hero{display:grid;gap:14px}.hero-top{display:flex;justify-content:space-between;gap:16px}.home{border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.14);border-radius:8px;padding:12px;text-align:right;min-width:190px}
+    h1{margin:0;font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:0}.subtitle{max-width:720px;margin:10px 0 0;color:rgba(255,255,255,.9)}
+    .quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.fact{min-width:0;border:1px solid rgba(255,255,255,.26);border-radius:8px;background:rgba(255,255,255,.13);padding:11px}.fact b,.home b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.72)}
+    nav{position:sticky;top:0;z-index:5;background:rgba(238,243,246,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);padding:10px 12px}.tabs{max-width:1120px;margin:auto;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+    .tab{min-width:0;min-height:58px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px;color:var(--ink);text-align:left;cursor:pointer}.tab[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.tab strong,.tab small{display:block}.tab small{opacity:.72;margin-top:2px}
+    main{width:min(1120px,calc(100% - 24px));margin:18px auto 36px}.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:16px;align-items:start}.panel,.card,.box,.tool{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 30px rgba(23,33,43,.08);min-width:0}.day-head{display:flex;justify-content:space-between;gap:14px;padding:16px;border-bottom:1px solid var(--line)}h2{margin:0 0 5px;font-size:clamp(25px,4vw,38px);line-height:1.05}h3{margin:0 0 8px}.muted{color:var(--muted);margin:0}
+    .routes{display:grid;gap:12px;padding:14px}.card{box-shadow:none;display:grid;grid-template-columns:82px minmax(0,1fr);gap:12px;padding:13px}.time{font-weight:800;color:var(--blue)}.tag{display:inline-block;border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:4px 8px;font-size:13px;color:var(--muted);margin:8px 0}.card p{margin:0 0 10px;color:#334252}.card h3{font-size:18px}.btn,.toggle{display:inline-block;border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:8px 10px;font-weight:700;text-decoration:none;font-size:13px;cursor:pointer}.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .side{display:grid;gap:0}.section{padding:14px}.section+.section{border-top:1px solid var(--line)}.list{display:grid;gap:9px;margin:0;padding:0;list-style:none}.list li,.meal{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:10px;overflow-wrap:anywhere}.list b,.meal b{display:block}.list a{display:inline-block;margin-top:4px;color:var(--blue);font-weight:700;text-decoration:none}.meal-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.toggle[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}.meal+.meal{margin-top:8px}.meal small{display:block;color:var(--muted);margin-top:3px}.notice{border-left:4px solid var(--gold);background:#fff8eb;border-radius:6px;padding:10px;margin-top:10px}
+    .tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.tool{padding:14px}
+    @media(max-width:850px){.hero-top{display:block}.home{text-align:left;margin-top:14px}.quick{grid-template-columns:repeat(2,minmax(0,1fr))}.tabs{grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}.layout{grid-template-columns:1fr}.day-head{display:block}.day-head .btn{width:100%;text-align:center;margin-top:12px}.card{grid-template-columns:1fr}.card .btn,.toggle{width:100%;text-align:center}.tools{grid-template-columns:1fr}}
+    @media(max-width:520px){header{padding:16px 12px}.subtitle{font-size:15px}.quick{grid-template-columns:1fr}.tab{padding:8px;font-size:13px}.day-head,.routes,.section,.tool{padding:12px}.meal-controls{grid-template-columns:1fr}main{width:calc(100% - 16px);margin-top:10px}h2{font-size:28px}.card h3{font-size:17px}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap hero"><div class="hero-top"><div><h1>Chicago 2026</h1><p class="subtitle">Pocket guide for June 26 to July 1 with day tabs, route cards, meal choices, backup plans, transit timing, and Google Maps links.</p></div><div class="home"><b>Home Base</b>Home2 Suites by Hilton Chicago River North<br>110 W Huron St</div></div><div class="quick"><div class="fact"><b>Arrival</b>Fri Jun 26<br>AA 1726 AUS to ORD, 7:45 AM</div><div class="fact"><b>Departure</b>Wed Jul 1<br>AA 1715 ORD to AUS, 6:59 PM</div><div class="fact"><b>Trip Style</b>No car rental<br>Walk, CTA, Metra, Uber</div><div class="fact"><b>Meal Rule</b>One major meal<br>Keep the other light</div></div></div></header>
+  <nav><div class="tabs" id="tabs"></div></nav>
+  <main><section class="layout" id="content"></section><section class="tools"><article class="tool"><h3>Transit Cheat Sheet</h3><p class="muted">Walk downtown clusters, use Metra Electric for Hyde Park, and save Uber for long cross-neighborhood moves.</p></article><article class="tool"><h3>Family Rule</h3><p class="muted">Book timed tickets for Skydeck and 360 Chicago when possible. Keep snack buffers before museums.</p></article><article class="tool"><h3>Day 3 Alert</h3><p class="muted">UChicago plus MSI plus Navy Pier is tight. Shorten MSI or skip fireworks if energy drops.</p></article></section></main>
+  <script>
+    const hotel="Home2 Suites by Hilton Chicago River North, 110 W Huron St, Chicago, IL";
+    const days=[
+      {id:"d1",label:"Day 1",date:"Jun 26, Fri",title:"Arrival, Michigan Ave, Millennium Park",mood:"Iconic first-day Chicago",map:[hotel,"The Purple Pig Chicago","Starbucks Reserve Roastery Chicago","Harry Potter Shop Chicago","Michigan Avenue Bridge","Cloud Gate","360 Chicago","Eataly Chicago"],routes:[["7:45 AM","Flight AA 1726: Austin to Chicago","Travel","AUS to ORD. Build in airport, baggage, and hotel drop-off time.","Austin-Bergstrom International Airport to O'Hare International Airport"],["12:00 PM","Major lunch: The Purple Pig or Quartino","1.5 hr","Good first Chicago meal near Michigan Avenue. Reserve if possible.","The Purple Pig Chicago"],["1:45 PM","Starbucks Reserve + Harry Potter Shop","1-1.5 hr","Teen-friendly, low-pressure start after travel.","Starbucks Reserve Roastery Chicago"],["3:15 PM","Michigan Ave walk + bridge photos","45 min","Walk south with river views and easy photo stops.","Michigan Avenue Bridge Chicago"],["4:15 PM","Millennium Park and Cloud Gate","45 min","Bean, Crown Fountain area, and a quick park reset.","Cloud Gate Chicago"],["5:30 PM","360 Chicago","1-1.5 hr","Late afternoon light is the win. Use timed tickets if available.","360 Chicago"],["7:15 PM","Light dinner: Eataly or Beatrix","45-60 min","Fast and predictable after walking.","Eataly Chicago"]],transit:[["Hotel to Michigan Ave","CTA/Uber, 10-25 min"],["Purple Pig to Starbucks","Walk, 5-8 min"],["Starbucks to Millennium Park","Walk, 15-20 min"],["Millennium Park to 360 Chicago","Walk 25-30 min or Uber 8 min"]],meals:{major:[["The Purple Pig","Backup: Quartino","Memorable but family-friendly."]],light:[["Eataly","Backup: Beatrix","Low-friction after walking."],["Starbucks Reserve","Backup: Garrett Popcorn","Treat stop and morale boost."]]},backups:[["Heat or fatigue","Uber from Millennium Park to 360 Chicago."],["Late arrival","Skip 360 today and move it to Day 2 after Skydeck."]]},
+      {id:"d2",label:"Day 2",date:"Jun 27, Sat",title:"Art Institute, Skydeck, Dinner",mood:"Culture plus skyline",map:[hotel,"Art Institute of Chicago","The Gage Chicago","Skydeck Chicago","Harold Washington Library Center","Gibsons Bar & Steakhouse Chicago"],routes:[["9:30 AM","Art Institute of Chicago","3-4 hr","Pick family favorites instead of trying to conquer the whole museum.","Art Institute of Chicago"],["1:15 PM","Light lunch: The Gage","1 hr","Across the street, efficient, and easy to book.","The Gage Chicago"],["2:30 PM","Skydeck / Willis Tower","1.5-2 hr","Book a timed ticket if possible.","Skydeck Chicago"],["4:45 PM","Optional: Library or Macy's","30-45 min","Only if energy remains.","Harold Washington Library Center Chicago"],["6:30 PM","Major dinner: Gibsons or Cherry Circle Room","1.5-2 hr","Classic Chicago finish for the Loop day.","Gibsons Bar & Steakhouse Chicago"]],transit:[["Hotel to Art Institute","Walk/CTA/Uber, 10-25 min"],["Art Institute to The Gage","Walk, 2-3 min"],["The Gage to Skydeck","Walk 20 min or Uber 5 min"],["Skydeck to Gibsons","Uber/CTA, 10-20 min"]],meals:{major:[["Gibsons","Backup: Cherry Circle Room","Classic Chicago finish."]],light:[["The Gage","Backup: Cafecito Loop","Efficient and near the museum."],["Garrett Popcorn","Backup: Jeni's","Dessert and souvenir insurance."]]},backups:[["Museum fatigue","Cut the optional library/Macy's stop."],["Weather problem","This day is mostly indoors, so keep it as the rainy-day anchor."]]},
+      {id:"d3",label:"Day 3",date:"Jun 28, Sun",title:"MSI, UChicago, Hyde Park",mood:"South Side science and campus",map:[hotel,"Griffin Museum of Science and Industry","Medici on 57th","University of Chicago","Virtue Restaurant Chicago","Navy Pier"],routes:[["9:30 AM","Griffin Museum of Science and Industry","3-4 hr","Best before the 2 PM UChicago tour if the tour is fixed.","Griffin Museum of Science and Industry Chicago"],["1:00 PM","Light lunch: Medici","45-60 min","Eat before the campus tour so the afternoon stays calm.","Medici on 57th Chicago"],["2:00 PM","University of Chicago official tour","2 hr","Fixed anchor from the schedule.","University of Chicago"],["4:15 PM","Campus or Jackson Park buffer","45-75 min","Flexible window if MSI ran long or heat is rough.","Jackson Park Chicago"],["6:30 PM","Major dinner: Virtue or Chinatown","1.5 hr","Virtue is strongest nearby; Chinatown works if routing north.","Virtue Restaurant Chicago"],["8:30 PM","Optional Navy Pier fireworks","30-60 min","Only if there is real energy left. Confirm schedule.","Navy Pier Chicago"]],transit:[["Downtown to UChicago/MSI","Metra Electric + walk/Uber, 30-40 min"],["UChicago to MSI","Walk 20-25 min or Uber 5-8 min"],["MSI to Virtue","Uber, 8-12 min"],["Hyde Park to Navy Pier","Uber, 20-35 min"]],meals:{major:[["Virtue","Backup: MingHin or QXY Dumplings","Best food; Chinatown helps if routing north."]],light:[["Medici on 57th","Backup: Plein Air Cafe","Fits the campus day."],["Navy Pier stands","Backup: hotel snacks","Do not depend on Navy Pier for a great dinner."]]},backups:[["If UChicago cannot move","Accept a shorter MSI visit after the tour, or drop Navy Pier."],["If everyone wants full MSI","Move Navy Pier to another night."]]},
+      {id:"d4",label:"Day 4",date:"Jun 29, Mon",title:"History, Riverwalk, Lincoln Park",mood:"North-side sweep",map:[hotel,"Chicago Riverwalk","RPM Seafood Chicago","Chicago History Museum","Lincoln Park Zoo","North Avenue Beach","RJ Grunts"],routes:[["9:30 AM","Chicago Riverwalk","1-1.5 hr","Good slower morning near the river.","Chicago Riverwalk"],["11:30 AM","Major lunch: RPM Seafood","1.5 hr","View plus food. Reserve if possible.","RPM Seafood Chicago"],["1:15 PM","Chicago History Museum","10-20 min transfer","Schedule has this Monday, but confirm hours before leaving.","Chicago History Museum"],["1:45 PM","Backup: Nature Boardwalk and Lincoln Park Zoo","1.5-2 hr","Use if the museum is closed.","Nature Boardwalk at Lincoln Park Zoo"],["5:30 PM","North Avenue Beach","30-60 min","Skyline photos and lakefront air.","North Avenue Beach Chicago"],["6:45 PM","Light dinner: RJ Grunts or Small Cheval","45-60 min","Casual and easy near the park.","RJ Grunts Chicago"]],transit:[["Hotel to Riverwalk","Walk/CTA/Uber, 10-25 min"],["Riverwalk to RPM Seafood","Walk, 5 min"],["RPM to History Museum","Uber/CTA, 10-20 min"],["Zoo to North Avenue Beach","Walk, 10-15 min"]],meals:{major:[["RPM Seafood","Backup: Pizzeria Portofino","Riverfront, easy logistics."]],light:[["RJ Grunts","Backup: Small Cheval Old Town","Casual after zoo and beach."],["Cafe near History Museum","Backup: beach snack stand","Flexible snack window."]]},backups:[["Monday closure","If the museum is closed, use Lincoln Park Zoo, Nature Boardwalk, beach, or Navy Pier."],["Rain","Skip beach and use Water Tower Place, Macy's, or extra museum time."]]},
+      {id:"d5",label:"Day 5",date:"Jun 30, Tue",title:"Writers Museum, Lakefront Trail, Jackson Park",mood:"Flexible finale",map:[hotel,"American Writers Museum","The Mart Chicago","Bobby's Bike Hike Chicago","Lakefront Trail Chicago","Jackson Park Chicago","Promontory Point Chicago"],routes:[["10:00 AM","American Writers Museum","1-1.5 hr","Good teen-friendly downtown culture stop. Confirm hours first.","American Writers Museum"],["11:45 AM","The MART","30-45 min","Easy architecture stop near River North.","The Mart Chicago"],["12:30 PM","Light lunch: Beatrix or Portillo's","45-60 min","Pick based on appetite.","Beatrix River North Chicago"],["2:00 PM","Lakefront Trail or Bobby's Bike Hike","1.5-2.5 hr","Comfort bikes are better than e-bikes for a 13-year-old.","Bobby's Bike Hike Chicago"],["4:45 PM","Jackson Park or Promontory Point","1-1.5 hr","Use only if energy and transit timing are good.","Promontory Point Chicago"],["6:30 PM","Farewell dinner: Quartino or missed favorite","1.5 hr","Flexible final dinner near River North.","Quartino Ristorante Chicago"]],transit:[["Hotel to Writers Museum","Walk/Uber, 10-20 min"],["Hotel to bike shop","Walk/Uber, 10-25 min"],["Bike shop to North Ave and back","Bike, 1.5-2.5 hr"],["Writers Museum to Jackson Park","Metra/Uber, 25-40 min"],["Jackson Park to dinner/hotel","Uber/Metra, 20-40 min"]],meals:{major:[["Quartino","Backup: Gibsons or Cherry Circle if missed","Flexible final night."]],light:[["Beatrix","Backup: Portillo's","Beatrix is healthier; Portillo's is classic."],["Garrett Popcorn","Backup: ice cream near hotel","Easy souvenir plus snack."]]},backups:[["Museum closure","Swap in Macy's, Water Tower Place, or more lakefront time."],["Rain","Skip bikes; use indoor downtown stops."],["Day 3 ran tight","Use this day to recover MSI or UChicago time instead of Jackson Park."]]},
+      {id:"d6",label:"Day 6",date:"Jul 1, Wed",title:"Departure Day",mood:"Pack, one last walk, fly home",map:[hotel,"Chicago Riverwalk","O'Hare International Airport"],routes:[["Morning","Pack and hotel checkout","Flexible","Keep the day light so the airport transfer does not feel rushed.",hotel],["Late morning","Optional Riverwalk or nearby cafe","45-90 min","Stay close to River North and avoid cross-town commitments.","Chicago Riverwalk"],["Afternoon","Travel to O'Hare","45-90 min","Leave a generous buffer for traffic or CTA timing.","O'Hare International Airport"],["6:59 PM","Flight AA 1715: Chicago to Austin","Travel","ORD to AUS.","O'Hare International Airport"]],transit:[["Hotel to O'Hare","Uber/taxi 35-75 min depending on traffic"],["CTA Blue Line option","Walk/Uber to station + train, often 60-80 min total"],["Airport buffer","Aim to leave downtown at least 3 hours before departure"]],meals:{major:[["Airport or early River North meal","Backup: hotel-area cafe","Keep it simple and close."]],light:[["Coffee or bakery near hotel","Backup: ORD food","No complicated routing today."]]},backups:[["Bad weather or traffic","Go to ORD earlier and relax airside."],["Extra time","Do one nearby Riverwalk loop, not a new neighborhood."]]}
+    ];
+    let active=days[0].id,mealMode="major";
+    const enc=encodeURIComponent;
+    function maps(q){return `https://www.google.com/maps/search/?api=1&query=${enc(q)}`}
+    function dir(stops,mode="walking"){const o=stops[0],d=stops[stops.length-1],w=stops.slice(1,-1).join("|");return `https://www.google.com/maps/dir/?api=1&origin=${enc(o)}&destination=${enc(d)}&travelmode=${mode}${w?`&waypoints=${enc(w)}`:""}`}
+    function routeCard(r){return `<article class="card"><div class="time">${r[0]}</div><div><h3>${r[1]}</h3><span class="tag">${r[2]}</span><p>${r[3]}</p><a class="btn" href="${maps(r[4])}" target="_blank" rel="noreferrer">Open in Google Maps</a></div></article>`}
+    function renderTabs(){tabs.innerHTML=days.map(d=>`<button class="tab" type="button" aria-selected="${d.id===active}" data-id="${d.id}"><strong>${d.label}</strong><small>${d.date}</small></button>`).join("");document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{active=b.dataset.id;mealMode="major";render()})}
+    function renderMeals(day){return `<div class="meal-controls"><button class="toggle" aria-pressed="${mealMode==="major"}" data-meal="major">Major meal</button><button class="toggle" aria-pressed="${mealMode==="light"}" data-meal="light">Light meal</button></div>${day.meals[mealMode].map(m=>`<div class="meal"><b>${m[0]}</b><small>${m[1]}</small><small>${m[2]}</small></div>`).join("")}`}
+    function render(){const d=days.find(x=>x.id===active);content.innerHTML=`<section class="panel"><div class="day-head"><div><h2>${d.title}</h2><p class="muted">${d.date} - ${d.mood}</p></div><a class="btn primary" href="${dir(d.map)}" target="_blank" rel="noreferrer">Open Walking Route</a></div><div class="routes">${d.routes.map(routeCard).join("")}</div></section><aside class="panel side"><div class="section"><h3>Meal Toggle</h3>${renderMeals(d)}</div><div class="section"><h3>Transit Times</h3><ul class="list">${d.transit.map(t=>`<li><b>${t[0]}</b>${t[1]}</li>`).join("")}</ul></div><div class="section"><h3>Transit Segments</h3><ul class="list">${d.map.slice(0,-1).map((s,i)=>`<li><b>${s} to ${d.map[i+1]}</b><a href="${dir([s,d.map[i+1]],"transit")}" target="_blank" rel="noreferrer">Open transit in Google Maps</a></li>`).join("")}</ul></div><div class="section"><h3>Backup Options</h3><ul class="list">${d.backups.map(b=>`<li><b>${b[0]}</b>${b[1]}</li>`).join("")}</ul>${d.id==="d4"?`<div class="notice"><b>Hours check:</b> Chicago History Museum is often closed Monday. Confirm before leaving the hotel.</div>`:""}${d.id==="d5"?`<div class="notice"><b>Hours check:</b> American Writers Museum may be closed Tuesday/Wednesday. Confirm before committing.</div>`:""}</div></aside>`;document.querySelectorAll(".toggle").forEach(b=>b.onclick=()=>{mealMode=b.dataset.meal;render()});renderTabs()}
+    renderTabs();render();
+  </script>
+</body>
+</html>
